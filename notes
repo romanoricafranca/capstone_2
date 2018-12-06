@@ -1,0 +1,89 @@
+CREATE TABLE tbl_orders(
+    
+    id INT(11) AUTO_INCREMENT NOT NULL UNIQUE,
+    users_id INT(11),
+    transaction_code VARCHAR(255) NOT NULL,
+    purchase_date TIMESTAMP NOT NULL,
+    status_id INT(11),
+    payment_mode_id INT(11),
+    FOREIGN KEY (users_id) REFERENCES tbl_users (id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL,
+    FOREIGN KEY (status_id) REFERENCES tbl_status (id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL,
+    FOREIGN KEY (payment_mode_id) REFERENCES tbl_payment_mode (id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL,
+    PRIMARY KEY (ID)
+    
+);
+
+CREATE TABLE tbl_status (
+	id INT(11) AUTO_INCREMENT NOT NULL UNIQUE, 
+    name VARCHAR(255) NOT NULL,
+	PRIMARY KEY (id)
+);
+
+
+    
+    
+    
+CREATE TABLE tbl_payment_mode (
+	id INT(11) AUTO_INCREMENT NOT NULL UNIQUE, 
+    name VARCHAR(255) NOT NULL,
+	PRIMARY KEY (id)
+    
+    );
+
+
+    CREATE TABLE tbl_order_items(
+
+    id INT(11) AUTO_INCREMENT NOT NULL UNIQUE,
+    orders_id INT(11) ,
+    FOREIGN KEY (orders_id) REFERENCES tbl_orders(id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL,
+    items_id INT(11),
+    FOREIGN KEY (items_id) REFERENCES items(id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL,
+    quantity INT(11) NOT NULL,
+    price DECIMAL(18,2) NOT NULL,
+    PRIMARY KEY (id)
+   
+
+);
+
+
+
+//transaction number generator
+
+function generate_trans_number()
+{  
+ $ref_number = '';
+ $source = array('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'); 
+ 
+  for($i=0; $i<16; $i++)
+    {
+      $index = rand(0,15);
+    
+  
+      $ref_number = $ref_number.$source[$index];
+  
+    
+    }
+  
+  $today = getdate(); //seconds in Unix Epoch
+  
+  return $ref_number."-".$today[0];
+
+}
+
+//call the function and echo
+
+echo generate_trans_number();
+echo "<br>";
+echo date("r G:i:s"); //Date function in PHP
+echo "<br>";
+echo date("Y:m:d G:i:s"); //Date function in PHP
