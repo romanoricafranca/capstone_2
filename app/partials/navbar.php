@@ -1,17 +1,21 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
-	  <a class="navbar-brand ml-5" href="index.php">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+	  <a class="navbar-brand" href="../views/index.php" style="font-family: 'Freckle Face', cursive; text-shadow: 5px 5px 30px #ff4d4d	";><i class="fas fa-tshirt"></i> Shirt Tee's</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 
-	  <div class="collapse navbar-collapse mr-5" id="navbarSupportedContent">
-	    <ul class="navbar-nav ml-auto">
+
+
+
+
+	  <div class="collapse navbar-collapse haha mr-5" id="navbarSupportedContent">
+	    <ul class="navbar-nav ml-auto huhu">
 	      <li class="nav-item ">
-	        <a class="nav-link" href="../views/catalog.php">Catalog<span class="sr-only"></span></a>
+	        <a class="nav-link" href="../views/index.php#test">Catalog<span class="sr-only"></span></a>
 	      </li>
 	      <li class="nav-item" id="notification">
-	        <a class="nav-link" href="cart.php"><i class='fas fa-shopping-cart'></i>Cart <span class="badge bg-danger" id="notif"><?php error_reporting(0); echo $_SESSION["item_count"]; ?></span></a>
+	        <a class="nav-link" href="#"><i class='fas fa-shopping-cart'></i>Cart <span class="badge bg-danger" id="notif"><?php error_reporting(0); echo $_SESSION["item_count"]; ?></span></a>
 	      </li>
 	      <li class="nav-item ">
 	        <a class="nav-link" href="#">About Us </a>

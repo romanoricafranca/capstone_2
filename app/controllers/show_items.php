@@ -7,30 +7,25 @@
 	$categoryID = $_POST['categoryID'];
 	$data = "";
 
-	$sql = "SELECT * FROM items where category_id = '$categoryID'";
+	$sql = "SELECT * FROM tbl_items where category_id = '$categoryID'";
 	$result = mysqli_query($conn, $sql);
 
 	if (mysqli_num_rows($result)>0) {
 		while ($row = mysqli_fetch_assoc($result)) {
-			$data.=" <div class='col-lg-4 col-md-6 mb-4 mt-4'>
+			$data.="<div class='col-lg-4 col-md-6 mb-4 mt-4'>
+			            <div class=''>                
+			                <img style='box-shadow: 0px 10px 20px #262626; border-radius: 5px;' class='card-img-top' src='$row[img_path]' alt=''>
+			                <div class='card-body text-center'>
+			                    <h4 class='card-title'><a href='product.php?id=$row[id]'>$row[name]</a></h4>
+			                    <h5>&#8369; $row[price].00</h5>       
+			                </div>
 
-                        <div class='card'>
-                                
-                            <img class='card-img-top' src='$row[img_path]' alt=''>
-                            <div class='card-body'>
-                                <h4 class='card-title'><a href='product.php?id=$row[id]'> $row[name]</a></h4>
-                                <p class='card-text'>
-			                  $row[description]</p>
-                                <h5><?= $row[price] ?></h5>       
-                            </div>
-
-                        <div class='card-footer'>
-                                
-                            <input type='number' class='form-control mb-3' min='1' value='1' id='quantity$row[id]' >
-                            <button class='btn btn-block btn-primary' data-id='$row[id]' id='addToCart'>Add to Cart</button>
-                        </div>
-                        </div>
-                    </div>";
+			                <div class='col-lg-8 offset-lg-2'>
+			                             
+			                    <button style='border-radius: 50px;' class='btn btn-block btn-outline-dark btn-sm' data-id='$row[id]' id='addToCart'>Add to Cart</button>
+			                </div>
+			            </div>
+			        </div>";
 		}
 	}
 	echo $data;
@@ -46,39 +41,3 @@
 
 
 ?>
-
-
-<!---for add to cart-->
-
-<script>
-
-    $("button#addToCart").on("click",function(){
-        //Get the product id
-        var productId = $(this).attr("data-id");
-        let quantity = $('#quantity'+productId).val();
-
-        console.log("Product id:" + productId);
-        console.log("Quantity id:" + quantity);
-
-
-        // $('#notif').append(sum);
-
-        //add to cart
-        $.ajax({
-
-            url:"../views/addToCart.php",
-            method:"POST",
-            data:{
-                productId:productId,
-                quantity:quantity
-            },
-            dataType:"text",
-            success:function(data){
-                $('a[href="cart.php"]').html(data);
-            }
- 
-        })
-
-    });
-
-</script>

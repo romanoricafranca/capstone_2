@@ -1,75 +1,53 @@
-//Change the no. of items and display the new subtotal
-function loadCart(){
-	$.get("loadcart.php",function(data){
+//for Search Bar
+$('#search').keyup(function(){
 
-		$("#loadcart").html(data);
+        let word = $(this).val();
+        console.log(word);
 
-	});
-}
+            //AJAX Request
 
+            $.post("../controllers/search_item.php",{word:word},function(datasearch){
 
+                $('#products').html(datasearch);
 
-$(document).ready(function(){
-
-	loadCart();
-
-
-});
+            });
+       });
 
 
-function changeNoItems(id){
+//for price
+    $('#pricesort').change(function(){
 
-	let items =	$("#quantity" + id).val();
-	let price = $("#price" + id).text();
-	let newPrice = items * price;
+        let filter = "";
 
-	// console.log(each(grandTotal));
-	// let grandtotal = items * newPrice;
+        //console.log(word);
 
-	console.log(items);
-	console.log("sub total is:" + newPrice);
-	
-	$("#subTotal" + id).text(parseFloat(newPrice).toFixed(2));
+            //AJAX Request
+                $("select option:selected").each(function(){
 
-	//computation of grand total
+                    filter += $(this).val(); 
 
-	let a = [];
-	$(".sub-total").each(function(id) {
-		a[id] = parseFloat($(this).text());
-		console.log(a);
-	});
-	let sum = 0;
-	$.each(a, function(index, value){
-		sum += value;
-	});
-	//console.log(sum);
+             $.post("../controllers/filter.php",{filter:filter},function(datasort){
 
-	$("#grandTotal").text(parseFloat(sum).toFixed(2));
+                 $('#products').html(datasort);
 
- }
+                 });
 
-
-
-//deleting item from cart 
-function removeFromCart(id){
-
-	// var ans = confirm("are you sure?");
-	// if (ans) {
-
-		// alert("you answered yes");
-		$.ajax({
-			url:"../controllers/removeFromCart.php",
-			method: "POST",
-			data:{productId:id},
-			dataType:"text",
-			success:function(data){
-				$('#notification').html(data);
-				loadCart();
-			}
-
-		});
-	// }
-}
-
-
+            });
+       });
  
+
+// for show category
+    function showCategory(categoryID){
+        // alert(categoryID);
+        $.ajax({
+                url:"../controllers/show_items.php",
+                method:"POST",
+                data:{
+                    categoryID:categoryID
+                },
+                dataType:"text",
+                success: function(data){
+                    $("#products").html(data)
+                }
+            });
+        }
