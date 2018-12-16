@@ -77,51 +77,6 @@
     </div>
 </div>
 </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <hr class="my-2 ">
-                <?php
-                $sql = "SELECT * FROM tbl_items where category_id LIMIT 4";
-                $result = mysqli_query($conn, $sql);
-                
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) { ?>
-                        <div class="col-lg-3 col-md-6 mb-4 mt-4">
-                            <div class="">                                           
-                                <img style="box-shadow: 0px 10px 20px #262626; border-radius: 5px" class="card-img-top" src="<?= $row['img_path']?>" alt="">
-                                    <div class="card-body">
-                                        <h4 class="card-title"><a href="product.php?id=<?=$row['id']?>"><?= $row['name'] ?></a></h4>
-                                        <h5>&#8369; <?= $row['price'] ?></h5>       
-                                    </div>
-
-                                    <div class="col-lg-8 offset-lg-2">
-                                                    
-                                        <button style="border-radius: 50px; " class="btn btn-block btn-outline-dark btn-sm" data-id='<?=$row['id']?>' id='addToCart'>Add to Cart</button>
-                                            </div>
-                                            </div>
-                                        </div>
-
-                                
-                                  <?php } } ?>
-
-
-            </div>
-        </div>
-    </div>
-
-
-
-
-    
-                   
-    
-
-
- 
-
-
-
 
 
 

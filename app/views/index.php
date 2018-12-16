@@ -27,7 +27,7 @@
     <hr class="my-5 col-lg-12 " id="test">
     <div class="row">
         <div class="col-lg-3">
-            <h2 style="font-family: 'Freckle Face', cursive;">Categories</h2>
+            <h2 style="font-family: 'Freckle Face', cursive;">Designs</h2>
             <div class="list-group">
 
                 <?php require_once '../controllers/connect.php';
@@ -44,7 +44,7 @@
             <div class="input-group mb-3 mt-2">
                     
                 <select class="custom-select" id="pricesort" aria-label="Example select with button addon">
-                    <option selected>....</option>
+                    <option value="3">....</option>
                     <option value="1">Lowest to Highest</option>
                     <option value="2">Highest to Lowest</option>
                     
@@ -62,7 +62,8 @@
         <div class="col-lg-9">
             <div class="col-lg-6 offset-lg-6">
             <form class="">
-                search
+                <small>search </small><i class="fas fa-search"></i>
+
                 <input type="" name="" class="form-control" id="search">
                 <!-- icon of your text field -->
             </form>

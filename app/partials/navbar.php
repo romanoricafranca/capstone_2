@@ -1,6 +1,6 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-	  <a class="navbar-brand" href="../views/index.php" style="font-family: 'Freckle Face', cursive; text-shadow: 5px 5px 30px #ff4d4d	";><i class="fas fa-tshirt"></i> Shirt Tee's</a>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top " style="background: #7C98B3";>
+	  <a class="navbar-brand" href="../views/index.php" style="font-family: 'Freckle Face', cursive; text-shadow: 5px 5px 30px #262626";><i class="fas fa-tshirt"></i> Shirt Tee's</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -9,8 +9,8 @@
 
 
 
-	  <div class="collapse navbar-collapse haha mr-5" id="navbarSupportedContent">
-	    <ul class="navbar-nav ml-auto huhu">
+	  <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+	    <ul class="navbar-nav ml-auto huhu" text-shadow: 5px 5px 30px #262626";>
 	      <li class="nav-item ">
 	        <a class="nav-link" href="../views/index.php#test">Catalog<span class="sr-only"></span></a>
 	      </li>
@@ -38,9 +38,9 @@
 	      	}
 	      	else
 	      	{
-	      		echo " <li class='nav-item'> <a class='nav-link' href ='#' data-toggle='modal' data-target='#exampleModal'>Login</a></li>";
+	      		echo " <li class='nav-item'> <a class='nav-link' href ='../views/login.php'>Login</a></li>";
 		       	echo "<li class='nav-item'>
-		        <a class='nav-link' href='../views/register_form.php'>Register</a>
+		        <a class='nav-link' href='../views/registration.php'>Register</a>
 		      </li>";
 	      	}
 

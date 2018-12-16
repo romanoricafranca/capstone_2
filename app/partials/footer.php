@@ -1,27 +1,27 @@
 	 <!-- Footer -->
-    <footer class="py-5" style="background-color:#f2f781">
+    <footer class="py-5 bg-dark" style="background-color:#536B78;  font-size: 1em;">
 
         <div class="container">
-        <div class="upper-foot">
+        
           <div class="row">
-            <div class="col-xs-6 col-sm-9">
+            <div class="col-lg-6">
               <h2>Contact details</h2>
               <address>
-                <i class="fa fa-map-marker"></i><a href="https://maps.google.com/?q=38+Apitong+Street+Marikina+Heights,+Marikina+City,+Metro+Manila,+Philippines" target="_blank">&nbsp;38 Apitong Street, Marikina Heights, Marikina City, Metro Manila, PHILIPPINES 1810</a><br>
-                <i class="fa fa-phone"></i> Stock Inquiries <a href="tel:+6329426724">(Artwork): (632) 942.6724</a><br>
+                <i class="fa fa-map-marker"></i><a href="#" target="_blank">&nbsp;38 Apitong Street, Mambugan, Antipolo City, Metro Manila, PHILIPPINES 1870</a><br>
+                <i class="fa fa-phone"></i> Stock Inquiries <a href="tel:+6329426724">(Shirtee): (632) 942.6724</a><br>
                 <i class="fa fa-phone"></i> For Orders <a href="tel:+6328794512">(Shopinas): (632) 879.4512</a><br>
-                <i class="fa fa-envelope"></i> E-mail. <a href="mailto:artwork.tshirts@gmail.com">artwork.tshirts@gmail.com</a><br>
+                <i class="fa fa-envelope"></i> E-mail. <a href="mailto:artwork.tshirts@gmail.com">shirttees.tshirts@gmail.com</a><br>
                 <i class="fa fa-fax"></i> Fax. (632) 942.4430<br>
               </address>
             </div>
-            <div class="col-xs-6 col-sm-3 text-right">
+            <div class="col-lg-3 offset-lg-3">
               <ul class="list-inline social-list">
-                <li><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
+                <li><a href="#"><i class="fab fa-facebook"></i>  Facebook</a></li>
+                <li><a href="#"><i class="fab fa-twitter-square"></i>  Twitter</a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i>   Instagram</a></li>
               </ul>
-              <p>Copyright © 2018 Shirtee, Inc.</p>
-              <p class="lead">Shirtee</p>
+              <p>Copyright © 2020 Shirtee, Inc.</p>
+              <p class="lead">Shirtee's</p>
             </div>
           </div>
         </div>

@@ -2,6 +2,18 @@
 
 	font-family: 'Pangolin', cursive;
 	color: #262626;
+
+}
+* a {
+
+   color: #262626;
+   
+
+}
+* a:hover
+{
+ text-decoration: none;
+ color:#7C98B3;
 }
 
 

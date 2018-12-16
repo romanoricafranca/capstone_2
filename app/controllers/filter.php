@@ -42,7 +42,11 @@ include 'connect.php';
 	}
 	else
 	{
-		$data = "No Records Found!";
+		$data = "<div class='col-lg-4 col-md-6 mb-4 mt-4'>
+
+					<p class='lead mt-5'>No Records Found!</p>
+
+				</div>";
 	}
 
 echo $data;

@@ -51,3 +51,143 @@ $('#search').keyup(function(){
                 }
             });
         }
+
+
+//for registration and validation
+
+    $(document).ready(() =>{
+
+	// BLANK VALIDATIONS --------------------------------------------------
+	$("#fname").focusout(()=>{
+
+		let fname = $('#fname').val();
+		
+		if (fname == "") {
+			$('#testclick').attr('disabled', true);
+			$('#error_fname').html("Needs Firstname!");
+		}
+		else{
+			$('#testclick').attr('disabled', false);
+			$('#error_fname').html("");
+		}
+
+	});
+
+	$("#lname").focusout(()=>{
+
+		let lname = $('#lname').val()
+		
+		if (lname == "") {
+			$('#testclick').attr('disabled', true);
+			$('#error_lname').html("Needs Lastname!");
+			$('#error_lname').addClass("red-text");
+		}
+		else{
+			$('#testclick').attr('disabled', false);
+			$('#error_lname').removeClass("red-text");
+			$('#error_lname').html("");
+		}
+
+	});
+
+	$("#email").focusout(()=>{
+
+		let email = $('#email').val();
+		// let emaillen = $('#email').val().length;
+		
+		if (email == "") {
+			$('#testclick').attr('disabled', true);
+			// $('#error_email').addClass("red-text");
+			$('#error_email').html("Needs Email!");
+		}
+		else{
+			$('#testclick').attr('disabled', false);
+			// $('#error_email').removeClass("red-text");
+			$('#error_email').html("");
+		}
+	});
+
+	$("#pass").focusout(()=>{
+
+		let pass = $('#pass').val();
+		let passlen = $('#pass').val().length;
+		
+		if (pass == "") {
+			$('#testclick').attr('disabled', true);
+			// $('#error_pass').addClass("red-text");
+			$('#error_pass').html("Needs Password!");
+		}
+		else{
+			if (passlen < 8) {
+				$('#testclick').attr('disabled', true);
+				// $('#error_pass').addClass("red-text");
+				$('#error_pass').html("Must be 8 characters!");
+			}
+			else{
+				$('#testclick').attr('disabled', false);
+				// $('#error_pass').removeClass("red-text");
+				$('#error_pass').html("");
+			}
+		}
+
+	});
+
+	$("#cpass").focusout(()=>{
+
+		let cpass = $('#cpass').val();
+		let pass = $('#pass').val();
+		
+		if (cpass == "") {
+			$('#testclick').attr('disabled', true);
+			// $('#error_cpass').addClass("red-text");
+			$('#error_cpass').html("Needs Confirm Password!");
+		}
+		else{
+			if (pass != cpass) {
+				$('#testclick').attr('disabled', true);
+				// $('#error_cpass').addClass("red-text");
+				$('#error_cpass').html("Must be same with Password!");
+			}
+			else{
+				$('#testclick').attr('disabled', false);
+				// $('#error_cpass').removeClass("red-text");
+				$('#error_cpass').html("");
+			}
+		}
+
+	});
+
+
+		$("#address").focusout(()=>{
+
+		let lname = $('#address').val()
+		
+		if (lname == "") {
+			$('#testclick').attr('disabled', true);
+			$('#error_address').html("Needs Address!");
+			$('#error_address').addClass("red-text");
+		}
+		else{
+			$('#testclick').attr('disabled', false);
+			$('#error_address').removeClass("red-text");
+			$('#error_address').html("");
+		}
+
+	});
+	// END OF BLANK VALIDATIONS --------------------------------
+		
+	});
+
+
+
+	$("#email").focusout(function(){
+
+		let email = $(this).val();
+	    // console.log(email);
+
+		$.post("../controllers/email_validation.php", {email:email}, function(data){
+		
+			$("#error_email").html(data);
+			
+		})
+	});
