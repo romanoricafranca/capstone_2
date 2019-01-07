@@ -5,7 +5,7 @@
 	if(session_destroy())
 	{
 
-	header("Location: ../views/login.php");
+	header("Location: ../views/admin.php");
 	
 	}
 

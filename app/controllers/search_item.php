@@ -20,7 +20,9 @@ $word = $_POST['word'];
 
 			                <div class='col-lg-8 offset-lg-2'>
 			                             
-			                    <button style='border-radius: 50px;' class='btn btn-block btn-outline-dark btn-sm' data-id='$row[id]' id='addToCart'>Add to Cart</button>
+			                    <input type='number' style='display:none;' value='1' id='quantity$row[id]'>
+                            	<button style='border-radius: 50px;' class='btn btn-block btn-outline-dark btn-sm' data-id='$row[id]' id='addToCart'>Add to Cart</button>
+                            	
 			                </div>
 			            </div>
 			        </div>";
@@ -38,5 +40,6 @@ $word = $_POST['word'];
 echo $data;
 ?>
 
+  <script type="text/javascript" src="../assets/js/script.js"></script>
 
 		

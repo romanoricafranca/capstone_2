@@ -28,7 +28,7 @@
 		}
 		else
 		{
-			$data ="Email is Available";
+			$data ="<span style='color : #7C98B3;'>Email is Available</span>";
 		}
 	}
 

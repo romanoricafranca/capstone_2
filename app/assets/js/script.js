@@ -191,3 +191,138 @@ $('#search').keyup(function(){
 			
 		})
 	});
+
+
+//Change the no. of items and display the new subtotal
+function loadCart(){
+	$.get("../controllers/loadcart.php",function(data){
+
+		$("#loadcart").html(data);
+
+	});
+}
+
+
+
+$(document).ready(function(){
+
+	loadCart();
+
+
+});
+
+
+function changeNoItems(id){
+
+	let items =	$("#quantity" + id).val();
+	let price = $("#price" + id).text();
+	let newPrice = items * price;
+
+	// console.log(each(grandTotal));
+	// let grandtotal = items * newPrice;
+	console.log(items);
+	console.log("sub total is:" + newPrice);
+	
+	$("#subTotal" + id).text(newPrice);
+
+	//computation of grand total
+
+	let a = [];
+	$(".sub-total").each(function(id) {
+		a[id] = parseInt($(this).text());
+		console.log(a);
+	});
+	let sum = 0;
+	$.each(a, function(index, value){
+		sum += value;
+	});
+	console.log(sum);
+
+	$("#grandTotal").text(sum);
+
+	//add to cart
+        $.ajax({
+
+            url:"../controllers/addtocart.php",
+            method:"POST",
+            data:{
+                productId:id,
+                quantity:items
+            },
+            dataType:"text",
+            success:function(data){
+                $('a[href="cart.php"]').html(data);
+            }
+
+    });
+
+ }
+
+
+function removeFromCart(id){
+
+	// var ans = confirm("are you sure?");
+	// if (ans) {
+
+		// alert("you answered yes");
+		$.ajax({
+			url:"../controllers/removefromcart.php",
+			method: "POST",
+			data:{productId:id},
+			dataType:"text",
+			success:function(data){
+				$('a[href="cart.php"]').html(data);
+				loadCart();
+			}
+
+		});
+	// }
+}
+
+
+    //get the quantity
+    $("button#addToCart").on("click",function(){
+        //Get the product id
+        var productId = $(this).attr("data-id");
+        let quantity = $('#quantity'+productId).val();
+
+        console.log("Product id:" + productId);
+        console.log("Quantity id:" + quantity);
+
+        //add to cart
+        $.ajax({
+
+            url:"../controllers/addtocart.php",
+            method:"POST",
+            data:{
+                productId:productId,
+                quantity:quantity
+            },
+            dataType:"text",
+            success:function(data){
+                $('a[href="cart.php"]').html(data);
+            }
+
+    });
+
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+
+

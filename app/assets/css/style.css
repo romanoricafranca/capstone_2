@@ -1,12 +1,16 @@
+
+
+
 * {
 
 	font-family: 'Pangolin', cursive;
 	color: #262626;
+  
 
 }
 * a {
 
-   color: #262626;
+   color: #7C98B3;
    
 
 }
@@ -18,16 +22,35 @@
 
 
 /*badge*/
-.notification {
-  background-color: #555;
-  color: white;
-  text-decoration: none;
-  padding: 15px 26px;
-  position: relative;
-  display: inline-block;
-  border-radius: 2px;
-}
 
 {
 	box-shadow: 10px 10px 20px #262626;     /*1st value for left or right 2nd value for top or right*/
-}	
+}
+
+
+
+.carousel-fade .carousel-item {
+ opacity: 0;
+ transition-duration: .6s;
+ transition-property: opacity;
+}
+
+.carousel-fade  .carousel-item.active,
+.carousel-fade  .carousel-item-next.carousel-item-left,
+.carousel-fade  .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade  .active.carousel-item-right {
+ opacity: 0;
+}
+
+.carousel-fade  .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade  .active.carousel-item-prev {
+ transform: translateX(0);
+ transform: translate3d(0, 0, 0);
+}

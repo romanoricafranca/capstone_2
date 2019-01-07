@@ -5,7 +5,7 @@
 	$lname = ucfirst($_POST['lname']);
 	$fname = ucfirst($_POST['fname']);
 	$email = $_POST['email'];	
-	$password = sha1($_POST['pass']);
+	$password = sha1($_POST['password']);
 	$address = $_POST['address'];
 
 	//SHA1 = secured hash algorithm 40 characters
@@ -17,7 +17,7 @@
 
 	if ($result) {
 		
-		header("Location: catalog.php");
+		header("Location: ../views/index.php");
 	}
 	else
 	{

@@ -31,30 +31,24 @@
                 <h5 style="font-size: 2em;"> &#8369; <?= $row['price'] ?>.00</h5>       
             </div>
                 <div class="col-lg-3">
-                    <p class="lead">Quantity: </p> <input type="number" class="form-control mL-3" min='1' value='1' id='quantity<?=$row['id']?>' >
+                    <span class="lead">Quantity: </span><input type="number" min="1" value="1" id="quantity<?=$row['id']?>">
                 </div>
             <hr class="my-2">
             <div class="col-lg-5">                
-                <?php
-
-                $sqlsizes = "SELECT * FROM tbl_sizes";
-                $sizes = mysqli_query($conn,$sqlsizes);
-
-                if (mysqli_num_rows($sizes) > 0) {?>
-
-                
+     
                 <h3 class="mt-1" style="font-family: 'Freckle Face', cursive;">Product Variant</h3> 
                 <div class="input-group mb-3 mt-2">     
                 <select class="custom-select">
-                <?php while ($row = mysqli_fetch_assoc($sizes)) {?>
-                    <option><?=$row['name']?></option>
-                            <?php }}?>    
+                    <option value="1">SMALL</option>  
+                    <option value="2">MEDIUM</option>  
+                    <option value="3">LARGE</option>  
+                    <option value="4">X-LARGE</option>  
+                    <option value="5">XXL</option>  
                 </select>
                 </div>
+ 
+                <button style="border-radius: 50px; " class="btn btn-block btn-outline-dark btn-sm" data-id='<?=$row['id']?>' id='addToCart'>Add to Cart</button>
 
-
-
-                <button style="border-radius: 50px; " class="btn btn-block btn-outline-dark btn-sm" data-id='<?=$row['id']?>' id='addToCart'>Add to Cart</button> 
 
             </div>
 
@@ -71,8 +65,7 @@
                 </di>      
             <?php }
             } ?>
-            <h5 class="lead">Size and Fit:</h5>
-            <img src="../assets/image/sizes.jpg" class="img-fluid" alt="Responsive image">
+
         </div>
     </div>
 </div>
@@ -81,3 +74,37 @@
 
 
 <?php require_once "../partials/footer.php"; ?>
+
+
+<script>
+
+    $("button#addToCart").on("click",function(){
+        //Get the product id
+        var productId = $(this).attr("data-id");
+        let quantity = $('#quantity'+productId).val();
+
+        console.log("Product id:" + productId);
+        console.log("Quantity id:" + quantity);
+
+
+        // $('#notif').append(sum);
+
+        //add to cart
+        $.ajax({
+
+            url:"../views/addToCart.php",
+            method:"POST",
+            data:{
+                productId:productId,
+                quantity:quantity
+            },
+            dataType:"text",
+            success:function(data){
+                $('a[href="cart.php"]').html(data);
+            }
+ 
+        })
+
+    });
+
+</script>

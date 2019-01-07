@@ -2,7 +2,8 @@
 
 
 <?php 
-	// session_start();
+session_start();
+
 
 	$email = $_POST['email'];
 	$password = sha1($_POST['password']);
@@ -10,31 +11,33 @@
 	$sql = "SELECT * FROM tbl_users WHERE email = '$email' AND pw = '$password'";
 
 	$result = mysqli_query($conn, $sql);
-	$count = mysqli_num_rows($result);
+	$count = mysqli_num_rows($result); 
 
-	echo $count;
-	echo $email;
-	echo $password;
+	//echo "$count";
 
-	if ($count == 1 ) {
-		  echo "Success";
-		// while($row = mysqli_fetch_assoc($result)){
 
-		// 	echo $row['lname'];
-		// 	echo "<br>";
-		// 	echo $row['fname'];
-
-			// $_SESSION['email'] = $row['email'];
-			// $_SESSION['lname'] = $row['lname'];
-			// $_SESSION['fname'] = $row['fname'];
+	if ($count == 1) {
+		while($row = mysqli_fetch_assoc($result)){
+			$_SESSION['email'] = $row['email'];
+			$_SESSION['fname'] = $row['fname'];
+			$_SESSION['lname'] = $row['lname'];
+			$_SESSION['address'] = $row['address'];
+			$_SESSION['usersid'] = $row['id'];
 		}
-		
 
-	 // header("Location: ../views/index.php#test");
-	//}
-	// else
-	// {
-	// 	echo "user account is invalid";
+		if ($_SESSION['email'] == "ricafrancaromano@gmail.com") {
+			header("Location: ../views/trans_history.php");
+		}
+		else{
 
-	// }	
+			header("Location: ../views/index.php#test");		
+		}
+	}
+	else
+	{
+	 	echo "";
+	}
+
 ?>
+
+
