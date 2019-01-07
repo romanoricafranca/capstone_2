@@ -20,13 +20,13 @@
 <hr class="mt-5">
 <div class="container">
 
-	<div class="row">		
-		<div class="col-lg-8 mt-5">
-			<h1>CHECKOUT</h1>
+	  <div class="row">		
+		    <div class="col-lg-8 mt-5">
+			   <h1>CHECKOUT</h1>
 
 		</div>
 
-		<!-- <form class="col-lg-8" action="../controllers/place_order1.php" method="POST"> --><div class="col-lg-4">  
+		<div class="col-lg-4">  
             <h4>Shipping address</h4>
 			<div class="input-group mb-3 mt-2">
                 
@@ -60,7 +60,7 @@
 
 			<div class="input-group mb-3 mt-2">
                 
-                <select class="custom-select" id="pricesort" aria-label="Example select with button addon">
+                <select class="custom-select" id="pricesort" aria-label="Example select with button addon" name="payment_mode">
                     <?php while ($row = mysqli_fetch_assoc($result)) {?>
                                         <option><?=$row['mode_payment']?></option>
                                    <?php }

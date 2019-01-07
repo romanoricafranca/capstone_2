@@ -7,14 +7,17 @@ if (!isset($_SESSION['email'])) {
         }
 
 	    else if (isset($_SESSION['email']) == "ricafrancaromano@gmail.com")
-	    {?>
+	    {
+	    		header("location: index.php");
+	    
+	   } ?>
 
 
 <hr class="mt-5">
 <div class="container mt-5">
 	<div class="row">
 		<div class="col-lg-8">
-			<h1>Transaction History</h1>
+			<h1>Transaction Order</h1>
 		</div>
 		<div class="col-lg-6 mt-5 mb-5">
 			<small>search </small><i class="fas fa-search"></i>
@@ -28,6 +31,8 @@ if (!isset($_SESSION['email'])) {
 						<th>Date of purchase</th>
 						<th>Payment Mode</th>
 						<th>Status</th>
+						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 
@@ -61,6 +66,9 @@ if (!isset($_SESSION['email'])) {
 						<td class=""><?= $purchase_date?></td>
 						<td class=""><?=$payment?></td>
 						<td class=""><?=$status_name?></td>
+						<td><button id="deliver_status" class="btn btn-primary" data-id='<?= $row['id'] ?>'><i class="fas fa-truck"></i></button></td>
+            			<td><button id="cancel_status" class="btn btn-warning" data-id='<?= $row['id'] ?>'><i class="fas fa-ban"></i></button></td>
+
 					</tr>
 
 					<?php
@@ -75,7 +83,7 @@ if (!isset($_SESSION['email'])) {
 
 </div>
 
-<?php } ?>
+
 
 
 
@@ -84,7 +92,9 @@ if (!isset($_SESSION['email'])) {
 
 <script type="text/javascript">
 	
-	$(document).ready(function(){
+// search
+
+$(document).ready(function(){
    $("#ordersearch").on("keyup", function() {
      var value = $(this).val().toLowerCase();
      $("#test1 tr").filter(function() {
@@ -93,13 +103,16 @@ if (!isset($_SESSION['email'])) {
    });
  });
 
-$('button#deliver_status').on("click",function(){
+
+// deliver and cancel`
+
+	$('button#deliver_status').on("click",function(){
        let orderId = $(this).attr('data-id');
 
        console.log("orderId: " + orderId);
-       $.post('admin_deliver.php', {orderId:orderId}, function(data){
+       $.post('../controllers/admin_deliver.php', {orderId:orderId}, function(data){
          alert("Status successfully changed to 'Delivered' ");
-       	document.location.href = 'admin_orders.php';
+       	document.location.href = 'trans_history.php';
        });
 
    });
@@ -108,11 +121,10 @@ $('button#deliver_status').on("click",function(){
        let orderId = $(this).attr('data-id');
 
        console.log("orderId: " + orderId);
-       $.post('admin_cancel.php', {orderId:orderId}, function(data){
+       $.post('../controllers/admin_cancel.php', {orderId:orderId}, function(data){
          alert("Status successfully changed to 'Cancelled' ");
-       	document.location.href = 'admin_orders.php';
+       	document.location.href = 'trans_history.php';
        });
-
    });
 
 

@@ -49,7 +49,7 @@ foreach($_SESSION['cart'] as $id => $quantity) {
                              <td id='price$id'> $price</td>
                              <td>
 
-                              <select class='custom-select' id='shirt_size' data-id='$id'>
+                              <select class='custom-select' id='shirt_size'     data-id='$id'>
                                 <option value='1'>SMALL</option>
                                 <option value='2'>MEDIUM</option>
                                 <option value='3'>LARGE</option>
@@ -84,13 +84,16 @@ $data .="</tbody></table>
 else
 {
   $data = "";
-  $data = "<div class='col-lg-4 offset-lg-4' >
+  $data = "<div class='col-lg-10 offset-lg-1' >
   <hr class='mt-5'>
+
         <h3>Your Cart is Empty</h3>
-
-  <a href='../views/index.php#test'><button style='border-radius: 50px;' class='btn btn-outline-dark btn-sm' style ='height : 100px;'>Go to Cart</button></a>
-
+        <img src='../assets/image/display/empty.png' width='150px' height='150px'>
+<div class='col-lg-5'> 
+  <a id='emptybtn' href='../views/index.php#test'><button style='border-radius: 50px;' class='btn btn-outline-dark btn-sm' '>Go to Cart</button></a>
+</div>
   <div/>";
+
 }
 
 
@@ -98,6 +101,7 @@ else
 echo $data;
 
 ?>
+
 
 <script type="text/javascript">
   

@@ -1,4 +1,9 @@
-<?php 
+<?php
+	require_once "../app/controllers/connect.php";
+
+	session_start();
+	$trans = $_SESSION['trans'];
+	$email = $_POST['email'];
 
 
 	//app/sample_mail.php

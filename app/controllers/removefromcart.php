@@ -2,6 +2,7 @@
 session_start();
 
 $id = $_POST["productId"];
+$data = "";
 //unset()
 
 unset($_SESSION["cart"][$id]);
@@ -13,6 +14,9 @@ echo "<i class='fas fa-shopping-cart'></i>Cart<span class='badge badge-danger'>"
 
 if ($_SESSION['item_count']  == 0) {
 	unset($_SESSION['item_count'],$_SESSION['cart']);
+	$data = true;
+
 }
+echo $data;
 
 ?>

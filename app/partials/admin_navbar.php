@@ -15,7 +15,7 @@
 	    else if (isset($_SESSION['email']) == "ricafrancaromano@gmail.com")
 	    {
 	      echo "<li class='nav-item'>
-	        <a class='nav-link' href='../views/trans_history.php'>Transaction history</a>
+	        <a class='nav-link' href='../views/trans_history.php'>Transaction Order</a>
 	      </li>";
 	    echo "<li class='nav-item'><a class='nav-link'href='../views/admin_add_item.php'>additems</a></li>";
 	    

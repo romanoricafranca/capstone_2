@@ -1,6 +1,16 @@
 <?php include "../partials/header.php";?>
 <?php include "../partials/admin_nav.php";?>
 <?php include "../controllers/connect.php";?>
+<?php if (!isset($_SESSION['email'])) {
+          header("location:login.php");
+        }
+
+	    else if (isset($_SESSION['email']) == "ricafrancaromano@gmail.com")
+	    {
+	    		header("location: index.php");
+	    
+	   } ?>
+
 
 
 <div class="container my-5">

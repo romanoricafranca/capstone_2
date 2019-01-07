@@ -1,6 +1,16 @@
 
 <?php require_once "../partials/admin_header.php"; ?>
 <?php require_once "../partials/admin_navbar.php"; ?>
+<?php if (!isset($_SESSION['email'])) {
+          header("location:login.php");
+        }
+
+	    else if (isset($_SESSION['email']) == "ricafrancaromano@gmail.com")
+	    {
+	    		header("location: index.php");
+	    
+	   } ?>
+
 
 
 <div class="container mt-5 mb-5">

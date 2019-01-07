@@ -12,6 +12,7 @@ $trans = generate_trans_number();
 
 
 
+
 $sql = "INSERT INTO tbl_orders (user_id, transaction_code, purchase_date, status_id, payment_mode_id)
         VALUES('$users_id','$trans','$purchase_date',1,1)";
 
@@ -20,6 +21,7 @@ $result = mysqli_query($conn, $sql);
 //last id to use for order_items
 $lastId = mysqli_insert_id($conn);
 $_SESSION['cart'];
+$trans = $_SESSION['trans'];
 
 
 foreach($_SESSION['cart'] as $id=> $quantity) {
@@ -57,7 +59,7 @@ $_SESSION["item_count"]= array_sum($_SESSION["cart"]);
 echo " <i class='fas fa-shopping-cart'></i>Cart
 <span class='badge bg-danger'>" . $_SESSION['item_count'] . "</span>";
 
-header("Location: ../views/index.php");
+header("Location: ../views/confirmation.php");
 
 }
 
