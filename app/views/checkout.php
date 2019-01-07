@@ -15,8 +15,6 @@
 
           <?php
 
-$size = $_POST['filter'];
-
 
 ?>
 <hr class="mt-5">

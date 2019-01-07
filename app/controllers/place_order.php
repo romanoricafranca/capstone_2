@@ -1,16 +1,16 @@
 <?php session_start();?>
 <?php
 	require "../../vendor/autoload.php";
-use PayPal\Rest\ApiContext;
-use PayPal\Auth\OAuthTokenCredential;
-use PayPal\Api\Payer;
-use PayPal\Api\Item;
-use PayPal\Api\ItemList;
-use PayPal\Api\Details;
-use PayPal\Api\Amount;
-use PayPal\Api\Transaction;
-use PayPal\Api\RedirectUrls;
-use PayPal\Api\Payment;
+	use PayPal\Rest\ApiContext;
+	use PayPal\Auth\OAuthTokenCredential;
+	use PayPal\Api\Payer;
+	use PayPal\Api\Item;
+	use PayPal\Api\ItemList;
+	use PayPal\Api\Details;
+	use PayPal\Api\Amount;
+	use PayPal\Api\Transaction;
+	use PayPal\Api\RedirectUrls;
+	use PayPal\Api\Payment;
 	require "../../vendor/phpmailer/phpmailer/src/PHPMailer.php";
 	require "../../vendor/phpmailer/phpmailer/src/Exception.php";
 	// error_reporting(0);
@@ -25,7 +25,7 @@ use PayPal\Api\Payment;
 	$trans = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),0,$length);
 	$transaction_code = $today."-".$trans;
 	$shipping_address = $_POST['shipping_address'];
-  $payment_mode = $_POST['payment_mode'];
+  	$payment_mode = $_POST['payment_mode'];
   	$sizes = "1";
 
 
@@ -46,8 +46,8 @@ if($payment_mode == 2){
 		die("Connection failed:". mysqli_error($conn));
 		
 	}else{
-		 $mail = new PHPMailer\PHPMailer\PHPMailer(true);
-    $grand_total = $_SESSION['grand_total'];
+		$mail = new PHPMailer\PHPMailer\PHPMailer(true);
+    	$grand_total = $_SESSION['grand_total'];
 		$staff_email = "ricafranca@rocketmail.com"; // where the email is comming from
 		$users_email =  $_SESSION['email']; //Where the email will go
 		$email_subject = "Your transaction code : $transaction_code";
