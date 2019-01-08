@@ -19,15 +19,15 @@
 	      </li>";
 	    echo "<li class='nav-item'><a class='nav-link'href='../views/admin_add_item.php'>additems</a></li>";
 	    
-	 	echo "<li class='nav-item'><a class='nav-link' href='#'>user profiles</a>
+	 	echo "<li class='nav-item'><a class='nav-link' href='../views/admin_edit.php'>Items</a>
 	    </li>";
 
-	    echo "<li class='nav-item'><a class='nav-link' href='../controllers/admin_logout.php'>log-out</a></li>";
+	    echo "<li class='nav-item'><a class='nav-link' href='../controllers/logout.php'>log-out</a></li>";
 		}
 
 
 		else {
-	    echo "<li class='nav-item'><a class='nav-link' href='admin_login.php'>log-in</a></li>";
+	    echo "<li class='nav-item'><a class='nav-link' href='login.php'>log-in</a></li>";
 			}
 	?>
 

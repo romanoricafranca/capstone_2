@@ -4,6 +4,10 @@
 <?php 
 require_once "../controllers/connect.php";
 
+if (!isset($_SESSION['email'])) {
+      header("Location: ../views/index.php");
+    }
+
 
 $users_id = $_SESSION['usersid'];
 

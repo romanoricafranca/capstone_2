@@ -2,12 +2,11 @@
 <?php require_once "../partials/admin_navbar.php"; ?>
 <?php require_once "../controllers/connect.php"; ?>
 <?php 
-		
-		if (!isset($_SESSION['email'])) {
-		header ("location:admin_login.php");
+		if ($_SESSION['email'] != "ricafrancaromano@gmail.com") {
+			header("Location: ../views/index.php");
 		}
 
-?>w
+?>
 
 
 

@@ -1,7 +1,8 @@
 <?php
-		
+			
 	session_start();
-	require_once 'connect.php';
+	 require_once 'connect.php';
+	//require_once 'db4free.php';
 
 	
 	$id = $_POST["productId"];
