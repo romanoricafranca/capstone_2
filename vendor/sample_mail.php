@@ -1,53 +1,68 @@
+<?php session_start();?>
 <?php
-	require_once "../app/controllers/connect.php";
 
-	session_start();
-	$trans = $_SESSION['trans'];
-	$email = $_POST['email'];
+require "autoload.php";
+
+// use PHPMailer\PHPMailer;
+// use PHPMailer\Exception;
 
 
-	//app/sample_mail.php
-	require "autoload.php";
-	
+$users_email = $_SESSION['email'];
+$firstname = $_SESSION['firstname'];
+$firstname = $_SESSION['lastname'];
+$address = $_SESSION['address'];
+$transaction_code = $_SESSION['transaction_code'];
+$purchase_date = $_SESSION['purchase_date'];
+$grand_total = $_SESSION['grand_total'];
 
-	// use PHPMailer\PHPMailer;
-	// use PHPMailer\Exception;	
+require "phpmailer/phpmailer/src/PHPMailer.php";
+require "phpmailer/phpmailer/src/Exception.php";
+require "autoload.php";
 
-	require "phpmailer/phpmailer/src/PHPMailer.php";
-	require "phpmailer/phpmailer/src/Exception.php";
+$mail = new PHPMailer\PHPMailer\PHPMailer(true);
 
-	//require the ff: files PHPMailer.php, Exception.php, autoload.php
+$staff_email = "theracquetscience@gmail.com"; // where the email is comming from
+$users_email =  $_SESSION['email']; //Where the email will go
+$email_subject = "Your transaction code : $transaction_code";
+$email_body = "
+			<h1>Thank you for shopping!</h1>
 
-	$mail = new PHPMailer\PHPMailer\PHPMailer(true);
+			<p>Your order will be delivered in 5-7 days in $address.</p>
 
-	$staff_email = "dummyaccount@gmail.com"; // where the email is coming from
+			<small>Transaction reference:$transaction_code</small>
+			<br>
+			<small>Transaction date:$purchase_date</small>
+			<br>
+			<small>Grand Total: &#x20B1; $grand_total.00</small>
+			<br>
 
-	$users_email = "ricafrancaromano@gmail.com";//where the email will go
+			<p><strong>Order Support Team</strong></p>
 
-	$email_subject = "CSP2 Order Confirmation";
-	$email_body = "<h3>Reference Number: 1234512345-1213123</h3>";
-	
-	try 
-	{
-		$mail->isSMTP();
-		$mail->Host = "smtp.gmail.com";
-		$mail->SMTPAuth = true;
-		$mail->Username = $staff_email;
-		$mail->Password = "test_1234";
-		$mail->SMTPSecure = "tls";
-		$mail->Port = 587;
-		$mail->setFrom($staff_email, "Company Name");
-		$mail->addAddress($users_email);
-		$mail->isHTML(true);
-		$mail->Subject = $email_subject;
-		$mail->Body = $email_body;
-		$mail->send();
-		echo "Message Has been sent";
-	}
 
-	catch(Exception $e)
-	{
-		echo "Message sending failed". $mail->ErrorInfo;
-	}
+		";
+
+try{
+	$mail->isSMTP();
+	$mail->Host = "smtp.gmail.com";
+	$mail->SMTPAuth = true;
+	$mail->Username = $staff_email;
+	$mail->Password = "Orders1120";
+	$mail->SMTPSecure = "tls";
+	$mail->Port = 587;
+	$mail->setFrom($staff_email,"Order Support");
+	$mail->addAddress($users_email);
+	$mail->isHTML(true);
+	$mail->Subject = $email_subject;
+	$mail->Body = $email_body;
+	$mail->send();
+
+	echo "message sent";
+
+
+}catch(Exception $e){
+	echo "message sending failed!".$mail->ErrorInfo;
+}
+
+
 
 ?>

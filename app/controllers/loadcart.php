@@ -85,14 +85,14 @@ else
 {
   $data = "";
   $data = "<div class='col-lg-10 offset-lg-1' >
-  <hr class='mt-5'>
+            <hr class='mt-5'>
 
         <h3>Your Cart is Empty</h3>
-        <img src='../assets/image/display/empty.png' width='150px' height='150px'>
-<div class='col-lg-5'> 
+        <img src='../assets/image/display/empty.png' width='150px' height='150px' class='img-fluid'>
+<div class='col-lg-5 mt-4 mb-4'> 
   <a id='emptybtn' href='../views/index.php#test'><button style='border-radius: 50px;' class='btn btn-outline-dark btn-sm' '>Go to Cart</button></a>
 </div>
-  <div/>";
+  </div>";
 
 }
 
@@ -105,19 +105,16 @@ echo $data;
 
 <script type="text/javascript">
   
-  $('#shirt_size').change(function(){
-    let pick = "";
+  // $('#check_out').on("click",function(){
+  //   let pick = $('#shirt_size').val();
 
-    $("#shirt_size option:selected").each(function(){
-      pick += $(this).val();
-      console.log(pick);
-       $.post('../views/testcheckk.php', {pick:pick}, function(data){
+  //     console.log(pick);
+  //      // $.post('../views/checkout.php', {pick:pick}, function(data){
 
-       });
-    });
+  //      // });
 
 
-  });
+  // });
 
 
 </script>

@@ -19,57 +19,33 @@
 ?>
 <hr class="mt-5">
 <div class="container">
-
-	  <div class="row">		
-		    <div class="col-lg-8 mt-5">
+	<div class="row">		
+		  <div class="col-lg-8 mt-5">
+        <form action="../controllers/place_order1.php" method="POST">
 			   <h1>CHECKOUT</h1>
 
-		</div>
 
-		<div class="col-lg-4">  
-            <h4>Shipping address</h4>
-			<div class="input-group mb-3 mt-2">
-                
-
-                <select class="custom-select" id="payment" name="payment_mode">
-                    <!-- <option selected>----------</option> -->
-                    <?php 
-                    $sql_mod = "SELECT * from tbl_payment_mode";
-                    $result_mod = mysqli_query($conn, $sql_mod);
-                    if(mysqli_num_rows($result_mod)>0)
-                    {
-                      while($row = mysqli_fetch_assoc($result_mod)){
-                        echo "<option required value='$row[id]'>$row[mode_payment]</option>";
-                      }
-                    }
-                    ?>
-                
-              </select>
-
-
-</div>
-            </div> 
-		</div>
-		<div class="col-lg-4">
-			<h4>Payment Method</h4>
+         <h3>Payment Method</h3>
 
       <?php 
       $sql = "SELECT * FROM tbl_payment_mode";
       $result = mysqli_query($conn, $sql);
-      if (mysqli_num_rows($result) > 0) {?>
+        if (mysqli_num_rows($result) > 0) {?>
 
-			<div class="input-group mb-3 mt-2">
-                
-                <select class="custom-select" id="pricesort" aria-label="Example select with button addon" name="payment_mode">
-                    <?php while ($row = mysqli_fetch_assoc($result)) {?>
-                                        <option><?=$row['mode_payment']?></option>
+      <div class="input-group mb-3 mt-2">      
+          <select class="custom-select" id="pricesort" aria-label="Example select with button addon" name="payment_mode">
+            <?php while ($row = mysqli_fetch_assoc($result)) {?>
+              <option value="<?=$row['id']?>"><?=$row['mode_payment']?></option>
                                    <?php }
-                               }?>
-                    
-                </select>
-            </div> 
-		</div>
+                               }?>          
+          </select>
+          <button style='border-radius: 50px;' class='ml-3 btn btn-outline-primary text-right' type="submit">Place Order</button>
 
+      </div>
+      </form>
+    </div><!--  ending payment method -->
+ 
+<div class="table-responsive">
         
 <!---for order detail-->
 <?php
@@ -107,6 +83,7 @@ foreach($_SESSION['cart'] as $id=> $quantity) {
                        //For computing the sub total and grand total
                        $subTotal = $quantity * $price;
                        $grand_total += $subTotal;
+                       $_SESSION['grand_total'] = $grand_total;
 
                        $data .=
                          "<tr>
@@ -127,7 +104,6 @@ $data .="</tbody></table>
              <hr>
              <h3 align='right'>Total: &#x20B1; <span id='grandTotal'>$grand_total </span></h3>
              <hr>
-			
              
              ";
 echo $data;
@@ -138,15 +114,17 @@ echo $data;
 				<div class='mb-5 col-lg-4'>
 					
 
-					<a href="../controllers/place_order1.php"><button class='btn btn-outline-success text-right'>Place Order</button></a>
+					
 
 
 				</div>
 
 	<!-- 		</form> -->
-
+</div>
 	</div>
 
+</div>
+</div>
 </div>
 
 

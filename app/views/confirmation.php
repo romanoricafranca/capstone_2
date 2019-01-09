@@ -5,6 +5,13 @@
 if (!isset($_SESSION['email'])) {
 			header("Location: ../views/index.php");
 		}
+
+$users_id = $_SESSION['usersid'];
+$sql = "SELECT * FROM tbl_orders WHERE id = (SELECT MAX(id) AS LastId FROM tbl_orders)";
+$result = mysqli_query($conn,$sql);
+
+
+
 ?>
 
 <hr class="mt-5">	
@@ -16,11 +23,29 @@ if (!isset($_SESSION['email'])) {
 			<div class="card">
 				<div class="card-header text-center">CONFIRMATION</div>		
 				<div class="card-body">
-				<h3 class="text-center">Transaction code: </h3>
-					<h1 class="text-center">
-					<?php echo $_SESSION['trans']; ?>
-					</h1>
-					<h4 class="text-center">Thank You for Shopping!!!</h4>
+				<h3 class="text-center">Transaction Reference: </h3>
+		<?php if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				?>
+
+					<h4 class="text-center">
+						<?= $row["transaction_code"]?>
+					</h4>
+
+
+
+				
+				<h3 class="text-center">Transaction Date: </h3>
+
+					<h4 class="text-center">
+						<?= $row["purchase_date"]?>
+					</h4>
+
+				<?php }} ?>
+
+
+
+					<h1 class="text-center">Thank You for Shopping!!!</h1>
 
 					<a class="btn btn-primary shop_again" href="index.php">Shop again!!!</a>
 					
