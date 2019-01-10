@@ -21,6 +21,8 @@
 	    
 	 	echo "<li class='nav-item'><a class='nav-link' href='../views/admin_edit.php'>Items</a>
 	    </li>";
+	   	echo "<li class='nav-item'><a class='nav-link' href='../views/admin_user.php'>Users info</a></li>";
+
 
 	    echo "<li class='nav-item'><a class='nav-link' href='../controllers/logout.php'>log-out</a></li>";
 		}

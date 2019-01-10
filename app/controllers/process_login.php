@@ -6,8 +6,11 @@ session_start();
 
 
 	$email = $_POST['email'];
-	$password = sha1($_POST['password']);
+	$password = sha1($_POST['pass']);
+	$data = "";
 
+	// echo $email;
+	// echo $password;
 	$sql = "SELECT * FROM tbl_users WHERE email = '$email' AND pw = '$password'";
 
 	$result = mysqli_query($conn, $sql);
@@ -26,17 +29,22 @@ session_start();
 		}
 
 		if ($_SESSION['email'] == "ricafrancaromano@gmail.com") {
-			header("Location: ../views/trans_history.php");
+			//header("Location: ../views/trans_history.php");
+			$data = 1;
 		}
 		else{
 
-			header("Location: ../views/index.php#test");		
+			//header("Location: ../views/index.php#test");
+			$data = 2;		
 		}
 	}
 	else
 	{
-	 	echo "";
+	 	$data = 3;
+	 	// echo "pakyu";
 	}
+
+	echo $data;
 
 ?>
 

@@ -5,7 +5,7 @@
 	
 	$orderId = $_POST['orderId'];
 
-	$sql2 = "SELECT img_path from tbl_items where id ='$orderId'";
+	$sql2 = "SELECT img_path FROM tbl_items WHERE id ='$orderId'";
 
 	$result2 = mysqli_query($conn,$sql2);
 	if(mysqli_num_rows($result2)){

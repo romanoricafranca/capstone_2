@@ -4,6 +4,14 @@
 
 ?>
 
+<?php 
+        if ($_SESSION['email'] == "ricafrancaromano@gmail.com") {
+            header("Location: ../views/trans_history.php");
+        }
+
+?>
+
+
 <hr class="mt-5">
 <hr>
 <div class="container mt-5">

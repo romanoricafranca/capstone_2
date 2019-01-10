@@ -2,6 +2,14 @@
 <?php require_once "../partials/navbar.php"; ?>
 <?php require_once "../controllers/connect.php"; ?>
 
+<?php 
+        if ($_SESSION['email'] == "ricafrancaromano@gmail.com") {
+            header("Location: ../views/trans_history.php");
+        }
+
+?>
+
+
 
 <?php 
 
@@ -14,6 +22,8 @@
 
 
           <?php
+
+
 
 
 ?>

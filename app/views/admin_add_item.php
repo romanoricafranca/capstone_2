@@ -41,7 +41,7 @@
 
 							<div class="form-group">
 								<label>Price</label>
-								<input type="number" name="price" class="form-control">
+								<input type="number" name="price" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <= 57"  min="1">
 							</div>
 							<div class="form-group">
 								<label>Description</label>

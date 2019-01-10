@@ -9,6 +9,8 @@ if (!isset($_SESSION['email'])) {
     }
 
 
+
+
 $users_id = $_SESSION['usersid'];
 
 $sql = "SELECT * FROM tbl_users WHERE id = '$users_id' ";
@@ -17,6 +19,14 @@ $result = mysqli_query($conn,$sql);
 if(mysqli_num_rows($result) > 0){
 while($row = mysqli_fetch_assoc($result)){
 	?>
+
+	<?php 
+        if ($_SESSION['email'] == "ricafrancaromano@gmail.com") {
+            header("Location: ../views/trans_history.php");
+        }
+
+?>
+
 
 <div class="container mt-5">
 		<div class="row">

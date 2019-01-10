@@ -1,6 +1,12 @@
 <?php require_once "../partials/header.php"; ?>
 <?php require_once "../partials/navbar.php"; ?>
 
+<?php 
+        if ($_SESSION['email'] == "ricafrancaromano@gmail.com") {
+            header("Location: ../views/trans_history.php");
+        }
+
+?>
 
 
 <div class="container mt-5">

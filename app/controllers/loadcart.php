@@ -5,9 +5,12 @@ require_once "../controllers/connect.php";
 
 if (isset($_SESSION['cart'])) {
 
-$data ='<hr class="mt-5">
-        <h3>My Cart</h3>
+$data ='<div class="container mt-5 mb-5">
+        <div class="row">
 
+      <hr class="mt-5">
+        <div class="table-responsive">
+        <h1 style="font-family: "Freckle Face", cursive";>My Cart</h1>
          <table class="table table-hover">
            <thead>
              <tr>
@@ -79,20 +82,28 @@ $data .="</tbody></table>
              <hr class='mb-3'>
             <h5 class='lead'>Size and Fit:</h5>
             <img src='../assets/image/sizes.jpg' class='img-fluid' alt='Responsive image'>
+             
+            </div>
+            </div>
+            </div>
+
              ";
 }
 else
 {
   $data = "";
-  $data = "<div class='col-lg-10 offset-lg-1' >
-            <hr class='mt-5'>
+  $data = "<div class='col-lg-8 offset-lg-2'>
 
-        <h3>Your Cart is Empty</h3>
-        <img src='../assets/image/display/empty.png' width='150px' height='150px' class='img-fluid'>
-<div class='col-lg-5 mt-4 mb-4'> 
-  <a id='emptybtn' href='../views/index.php#test'><button style='border-radius: 50px;' class='btn btn-outline-dark btn-sm' '>Go to Cart</button></a>
-</div>
-  </div>";
+            <hr class='mt-5'>
+            <div class='col-lg-4 offset-lg-4'>
+            <h2>Your Cart is Empty</h2>
+            <img src='../assets/image/display/empty.png' width='300px' height='300px' class='img-fluid'>
+              <div class='col-lg-6 offset-lg-3 mt-4 mb-4'> 
+                <a id='emptybtn' href='../views/index.php#test'><button style='border-radius: 50px;' class='btn btn-outline-dark'>Go to Cart</button></a>
+              </div>
+            </div>
+          </div>
+  ";
 
 }
 
@@ -101,20 +112,3 @@ else
 echo $data;
 
 ?>
-
-
-<script type="text/javascript">
-  
-  // $('#check_out').on("click",function(){
-  //   let pick = $('#shirt_size').val();
-
-  //     console.log(pick);
-  //      // $.post('../views/checkout.php', {pick:pick}, function(data){
-
-  //      // });
-
-
-  // });
-
-
-</script>

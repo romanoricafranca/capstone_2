@@ -8,6 +8,12 @@ if (!isset($_SESSION['email'])) {
 
 ?>
 
+<?php 
+        if ($_SESSION['email'] == "ricafrancaromano@gmail.com") {
+            header("Location: ../views/trans_history.php");
+        }
+
+?>
 
 
 

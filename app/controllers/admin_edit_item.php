@@ -7,7 +7,6 @@ if ($_SESSION['email'] != "ricafrancaromano@gmail.com") {
 		}
 ?>
 
-
 <hr class="mt-5">
 <div class="container mt-5">
 	<div class="row">
@@ -48,10 +47,10 @@ if ($_SESSION['email'] != "ricafrancaromano@gmail.com") {
 
 
 					<tr>
-						<td id="td_n1"><?=$name?></td>
-						<td id="td_n2"><?= $price?></td>
-						<td id="td_n3"><?=$description?></td>
-						<td><button id="delitem" class="btn btn-danger" data-id='<?= $row['id'] ?>'><i class="fas fa-trash-alt"></i></button></td>
+						<td class=""><?=$name?></td>
+						<td class=""><?= $price?></td>
+						<td class=""><?=$description?></td>
+						<td><button id="saveitem" class="btn btn-info" data-id='<?= $row['id'] ?>'><i class="far fa-save"></i></button></td>
 
 					</tr>
 
@@ -69,33 +68,3 @@ if ($_SESSION['email'] != "ricafrancaromano@gmail.com") {
 
 
 <?php include "../partials/admin_footer.php";?>
-
-
-<script type="text/javascript">
-	
-	$('button#delitem').on("click",function(){
-	   let orderId = $(this).attr('data-id');
-
-	   console.log("orderId: " + orderId);
-	   $.post('../controllers/admin_delitem.php', {orderId:orderId}, function(data){
-	     alert("Item successfully deleted");
-	   	document.location.href = 'admin_edit.php';	
-	   });
-
-	});
-
-
-		// search
-
-$(document).ready(function(){
-   $("#ordersearch").on("keyup", function() {
-     var value = $(this).val().toLowerCase();
-     $("#test1 tr").filter(function() {
-       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-     });
-   });
- });
-
-
-
-</script>

@@ -6,6 +6,8 @@ if (!isset($_SESSION['email'])) {
 			header("Location: ../views/index.php");
 		}
 
+
+
 $users_id = $_SESSION['usersid'];
 $sql = "SELECT * FROM tbl_orders WHERE id = (SELECT MAX(id) AS LastId FROM tbl_orders)";
 $result = mysqli_query($conn,$sql);
@@ -13,6 +15,14 @@ $result = mysqli_query($conn,$sql);
 
 
 ?>
+
+<?php 
+        if ($_SESSION['email'] == "ricafrancaromano@gmail.com") {
+            header("Location: ../views/trans_history.php");
+        }
+
+?>
+
 
 <hr class="mt-5">	
 

@@ -2,6 +2,12 @@
 <?php require_once "../partials/navbar.php"; ?>
 <?php include "../controllers/connect.php"; ?>
 
+<?php 
+        if ($_SESSION['email'] == "ricafrancaromano@gmail.com") {
+            header("Location: ../views/trans_history.php");
+        }
+
+?>
 
 
 <div class="container mb-5 mt-5">   
