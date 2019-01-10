@@ -11,7 +11,7 @@
 	<title>Shirtee's</title>
 	<link rel="icon" 
  	 type="image/png" 
-      src="../assets/image/logo/logo.png">
+      href="../assets/image/logo/logo.png">
 	<!-- external bootstrap css -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
